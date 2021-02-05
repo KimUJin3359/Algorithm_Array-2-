@@ -7,7 +7,7 @@ void swap(int *a, int *b);
 
 int main() {
 	int num[5];
-	int index;
+	int index = -1;
 	int max_v = -1;
 	int max_i;
 
@@ -18,18 +18,18 @@ int main() {
 		if (num[i] > num[i + 1])
 			index = i;
 	}
+	if (index == -1)
+	{
+		print_arr(num);
+		return (0);
+	}
 	for (int i = index + 1; i < 5; i++)
 	{
-		if (num[i] > max_v)
+		if (num[i] > max_v && num[i] < num[index])
 		{
 			max_v = num[i];
 			max_i = i;
 		}
-	}
-	if (max_v == 1)
-	{
-		print_arr(num);
-		return (0);
 	}
 	swap(&num[index], &num[max_i]);
 	for (int i = index + 1; i < 4; i++)

@@ -7,7 +7,7 @@ void swap(int &a, int &b);
 
 int main() {
 	int num[5];
-	int index;
+	int index = -1;
 	int min_v = 2147483647;
 	int min_i;
 
@@ -18,18 +18,18 @@ int main() {
 		if (num[i] < num[i + 1])
 			index = i;
 	}
+	if (index = -1)
+	{
+		print_arr(num);
+		return (0);
+	}
 	for (int i = index + 1; i < 5; i++)
 	{
-		if (num[i] < min_v)
+		if (num[i] < min_v && num[index] < num[i])
 		{
 			min_v = num[i];
 			min_i = i;
 		}
-	}
-	if (min_v == 5)
-	{
-		print_arr(num);
-		return (0);
 	}
 	swap(num[index], num[min_i]);
 	for (int i = index + 1; i < 4; i++)
